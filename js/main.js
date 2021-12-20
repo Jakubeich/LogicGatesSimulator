@@ -9,11 +9,6 @@ let cursorMode = 'hand';
 
 function setup() {
     createCanvas(displayWidth, displayHeight);
-
-    entities.push(new Switch(200, 100));
-    entities.push(new Light(500, 200));
-    entities.push(new Switch(200, 300));
-    entities.push(new Light(500, 400));
 }
 
 function draw() {
@@ -100,6 +95,14 @@ function switchMode(mode) {
         case 'wire': cursor('/assets/wire.png'); break;
     }
 } 
+
+function createEntity(type) {
+  if (type === "switch") {
+    entities.push(new Switch(100, 100));
+  } else if (type === "light") {
+    entities.push(new Light(100, 200));
+  }
+}
 
 // LINE/POINT
 function linePoint(x1, y1, x2, y2, px, py) {
