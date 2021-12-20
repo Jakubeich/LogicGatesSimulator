@@ -8,7 +8,7 @@ let grid = 32;
 let cursorMode = 'hand';
 
 function setup() {
-    createCanvas(displayWidth, displayHeight);
+    canvasSimulator = createCanvas(1600, 990);
 }
 
 function draw() {
@@ -70,6 +70,13 @@ function mouseReleased() {
     wiring = null;
 }
 
+function keyPressed() {
+    if (keyCode == DELETE){
+        console.log("Smazal si objekt!")
+    }
+}
+
+
 function addVec(vec1, vec2) {
     return {x: vec1.x + vec2.x, y: vec1.y + vec2.y};
 }
@@ -99,8 +106,10 @@ function switchMode(mode) {
 function createEntity(type) {
   if (type === "switch") {
     entities.push(new Switch(100, 100));
+    console.log("Vytvořil si switch!")
   } else if (type === "light") {
     entities.push(new Light(100, 200));
+    console.log("Vytvořil si light!")
   }
 }
 
